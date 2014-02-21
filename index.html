@@ -1,122 +1,43 @@
-<!DOCTYPE html>
-<!--
-  Copyright 2012 Google Inc. All Rights Reserved.
-  You may study, modify, and use this example for any purpose.
-  Note that this example is provided "as is", WITHOUT WARRANTY
-  of any kind either expressed or implied.
- -->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!doctype html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>Google IMA SDK integration example, GPT content service</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" type="text/javascript"></script>
-    <link href="style.css" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Googleads-ima-flash googleads</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>googleads-ima-flash</h1>
+        <p>IMA Flash SDK Examples</p>
 
-  <body bgcolor="#ffffff">
+        <p class="view"><a href="https://github.com/googleads/googleads-ima-flash">View the Project on GitHub <small>googleads/googleads-ima-flash</small></a></p>
 
-    <h1 class="logo">Flash IMA SDK</h1>
-    <div class="topnav"><h2>Displaying companions using GPT and content service
-    </h2></div>
-    <div class="note">This example shows how to display companions using
-    Google Publisher Tag. <strong>Content service</strong> is used
-    to preload the top slot with a static image.<br/>
-    To show the companions, select a scenario that includes companions and
-    click <strong>Load ad</strong>.
+        <ul>
+          <li><a href="https://github.com/googleads/googleads-ima-flash/releases">Download <strong>Releases</strong></a></li>
+          <li><a href="view_example/">View<strong>Example</strong></a></li>
+        </ul>
+      </header>
+      <section>
+
+<h3>Google Flash IMA SDK</h3>
+<p><a href="view_example/">View the Example</a> - See a live demo of the Flash IMA SDK.</p>
+
+<p>The Google Interactive Media Ads (IMA) SDK enables publishers to display linear, non-linear, and companion ads in interactive media content such as videos and games. Publishers can use the IMA SDK to request and display ads served by DoubleClick for Publishers (DFP), the Google AdSense network, or any VAST-compliant ad server. Common scenarios for using the IMA SDK include displaying pre-rolls or overlays in video content. <a href="https://developers.google.com/interactive-media-ads/">Learn More</a>.</p>
+     </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/googleads">googleads</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-    <!--
-    This file demonstrates the use of static content service. This service
-    provides a way to insert any HTML content into an ad unit. It can be used
-    to easily insert initial content into companion ads.
-
-    This page is tagged using Google Publisher Tag library. Please use this
-    library if you are using Google DoubleClick For Publishers for your ad
-    trafficking and delivery.
-
-    This example uses synchronous page tagging. This means that all the
-    code that is necessary to tag your page will be loaded before any tagging
-    commands, such as ad unit definition or ad display, are issued.
-     -->
-    <!-- Load tagging library -->
-    <script type="text/javascript"
-            src="http://www.googletagservices.com/tag/js/gpt.js">
-    </script>
-
-    <script type="text/javascript">
-      // Add HTML companions via googletag.defineUnit and then attach
-      // services to units.
-      // adSlot1 adds both companion and content service in order to
-      // show custom HTML in the unit.
-      adSlot1 = googletag.defineUnit(
-          '/6062/video-demo',
-          [728, 90],
-          'companionDiv1');
-      adSlot1.addService(googletag.companionAds());
-      adSlot1.addService(googletag.content());
-      // adSlot2 uses only the companions service.
-      adSlot2 = googletag.defineSlot(
-          '/6062/video-demo',
-          [300, 250],
-          'companionDiv2');
-      adSlot2.addService(googletag.companionAds());
-      // Load companion ads service synchronously.
-      googletag.companionAds().enableSyncLoading();
-      googletag.enableServices();
-    </script>
-
-    <!-- It is not required to specify the size of the slot in the HTML, but
-         the user experience is worse when parts of page suddenly jump and
-         content shifts. -->
-    <div id="companionDiv1" style="width:728px; height:90px;">
-      <script type="text/javascript">
-        // Display HTML in the slot.
-        googletag.content().setContent(
-            adSlot1,
-            '<img src="initialcontent728x90ad.JPG">');
-        googletag.display('companionDiv1');
-      </script>
-    </div>
-
-
-    <table>
-      <tr>
-        <td>
-          <div id="SdkIntegration"></div>
-          <script type="text/javascript">
-            var flashvars = {};
-            var params = {
-              allowScriptAccess: "always",
-              allowFullScreen: "true"
-            };
-            var attributes = {};
-            var expressInstallSwfUrl;
-            var minimalFlashVersion = "10.0.0";
-            swfobject.embedSWF("SdkIntegration.swf",
-                               "SdkIntegration",
-                               "650",
-                               "500",
-                               minimalFlashVersion,
-                               expressInstallSwfUrl,
-                               flashvars,
-                               params,
-                               attributes);
-          </script>
-        </td>
-        <td valign='TOP'>
-          <table>
-            <tr>
-              <td>
-                <div id="companionDiv2" style="width:300px; height:250px;">
-                  <script type="text/javascript">
-                    googletag.display('companionDiv2');
-                  </script>
-                </div>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
